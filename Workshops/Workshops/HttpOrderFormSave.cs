@@ -1,4 +1,3 @@
-
 using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -14,7 +13,7 @@ namespace Workshops
   public static class HttpOrderFormSave
   {
     [FunctionName("HttpOrderFormSave")]
-    public static IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequest req,
+    public static IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequest req,
       [Table("Orders", Connection = "StorageConnection")]ICollector<PhotoOrder> ordersTable,
       TraceWriter log)
     {
